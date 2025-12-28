@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Search Frequency</title>
+  <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    #term {
+      font-size: 42px;
+      font-weight: 600;
+      margin-top: 30px;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Latest Search</h2>
+<div id="term">—</div>
+
+<script>
+  const peer = new Peer();
+  const conn = peer.connect("magic-room");
+
+  conn.on("data", value => {
+    document.getElementById("term").textContent = value;
+  });
+</script>
+
+</body>
+</html>

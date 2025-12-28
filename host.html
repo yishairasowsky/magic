@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Search Frequency</title>
+  <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      text-align: center;
+      margin-top: 80px;
+    }
+    input {
+      font-size: 18px;
+      padding: 10px;
+      width: 260px;
+    }
+    button {
+      font-size: 18px;
+      padding: 10px 18px;
+      margin-left: 6px;
+    }
+    #code {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Search Frequency</h2>
+
+<input id="term" placeholder="Enter a term" />
+<button id="search">Search</button>
+
+<div id="code">Room ID: —</div>
+
+<script>
+  const roomId = "magic-room"; // fixed for MVP
+  const peer = new Peer(roomId);
+
+  document.getElementById("code").textContent = "Room ID: " + roomId;
+
+  let connections = [];
+
+  peer.on("connection", conn => {
+    connections.push(conn);
+  });
+
+  function sendTerm(value) {
+    connections.forEach(c => c.send(value));
+  }
+
+  function submit() {
+    const value = document.getElementById("term").value.trim();
+    if (!value) return;
+    sendTerm(value);
+  }
+
+  document.getElementById("search").onclick = submit;
+  document.getElementById("term").onkeydown = e => {
+    if (e.key === "Enter") submit();
+  };
+</script>
+
+</body>
+</html>

@@ -1,55 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>Search Frequency</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Loading…</title>
+  <script>
+    const role = new URLSearchParams(location.search).get("role");
+    location.href = role === "host" ? "host.html" : "spectator.html";
+  </script>
 </head>
-<body>
-  <div class="page">
-    <div class="container">
-      <h1>Search Frequency</h1>
-      <p class="subtitle">Estimated global search interest (index)</p>
-
-      <form class="search-form" onsubmit="checkTerm(); return false;">
-        <input
-          id="termInput"
-          type="text"
-          placeholder="Enter a search term"
-          autocomplete="off"
-        />
-        <button type="submit">Search</button>
-      </form>
-
-      <div id="result" class="result hidden">
-        <div class="query">
-          Query: <span id="queryValue"></span>
-        </div>
-
-        <div class="score-row">
-          <span class="score" id="scoreValue">–</span>
-          <span class="scale">/ 100</span>
-        </div>
-        <div class="label">Search Interest Index</div>
-      </div>
-
-      <div class="table">
-        <h3>Example high-frequency terms</h3>
-        <table>
-          <tr><td>weather</td><td>95</td></tr>
-          <tr><td>taylor swift</td><td>92</td></tr>
-          <tr><td>elon musk</td><td>90</td></tr>
-          <tr><td>bitcoin</td><td>88</td></tr>
-          <tr><td>ai</td><td>85</td></tr>
-        </table>
-      </div>
-
-      <p class="footer">
-        Index based on aggregated public trend data.
-      </p>
-    </div>
-  </div>
-
-  <script src="app.js"></script>
-</body>
+<body></body>
 </html>
