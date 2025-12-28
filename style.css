@@ -1,7 +1,7 @@
 body {
-  font-family: system-ui, sans-serif;
-  background: #f2f2f2;
-  color: #222;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f3f4f6;
+  color: #111;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,12 +9,11 @@ body {
 }
 
 .container {
-  text-align: center;
-  max-width: 420px;
-  background: #ffffff;
+  background: #fff;
   padding: 32px;
-  border-radius: 6px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  border-radius: 8px;
+  width: 420px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
 
 h1 {
@@ -27,39 +26,44 @@ h1 {
   margin-bottom: 20px;
 }
 
-form {
-  margin-bottom: 20px;
-}
-
 input {
   width: 100%;
   padding: 12px;
-  font-size: 16px;
+  font-size: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
 button {
   margin-top: 12px;
-  padding: 10px 22px;
-  font-size: 15px;
+  padding: 10px 20px;
+  font-size: 14px;
+  background: #f1f1f1;
   border: 1px solid #ccc;
-  background: #eee;
   border-radius: 4px;
   cursor: pointer;
 }
 
-button:hover {
-  background: #e0e0e0;
-}
-
 .result {
-  margin-top: 25px;
+  margin-top: 24px;
+  text-align: center;
 }
 
-.number {
-  font-size: 48px;
+.score-row {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.score {
+  font-size: 52px;
   font-weight: 600;
+}
+
+.scale {
+  margin-left: 6px;
+  font-size: 16px;
+  color: #666;
 }
 
 .label {
@@ -67,12 +71,38 @@ button:hover {
   color: #666;
 }
 
-.hidden {
-  display: none;
+.table {
+  margin-top: 28px;
+}
+
+.table h3 {
+  font-size: 13px;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+td {
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+}
+
+td:last-child {
+  text-align: right;
+  color: #333;
 }
 
 .footer {
-  margin-top: 35px;
+  margin-top: 24px;
   font-size: 11px;
   color: #777;
+}
+
+.hidden {
+  display: none;
 }

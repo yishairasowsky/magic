@@ -8,7 +8,7 @@
 <body>
   <div class="container">
     <h1>Search Frequency</h1>
-    <p class="subtitle">Estimated global search interest index</p>
+    <p class="subtitle">Estimated global search interest (index)</p>
 
     <form onsubmit="checkTerm(); return false;">
       <input
@@ -21,8 +21,22 @@
     </form>
 
     <div id="result" class="result hidden">
-      <div class="number" id="score"></div>
-      <div class="label">Search Interest Index (0–100)</div>
+      <div class="score-row">
+        <span class="score" id="scoreValue">–</span>
+        <span class="scale">/ 100</span>
+      </div>
+      <div class="label">Search Interest Index</div>
+    </div>
+
+    <div class="table">
+      <h3>Example high-frequency terms</h3>
+      <table>
+        <tr><td>weather</td><td>95</td></tr>
+        <tr><td>taylor swift</td><td>92</td></tr>
+        <tr><td>elon musk</td><td>90</td></tr>
+        <tr><td>bitcoin</td><td>88</td></tr>
+        <tr><td>ai</td><td>85</td></tr>
+      </table>
     </div>
 
     <p class="footer">
