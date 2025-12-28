@@ -2,21 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>magic</title>
+  <title>Search Frequency</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>magic</h1>
-    <p class="subtitle">Think of a word. Type it.</p>
+    <h1>Search Frequency</h1>
+    <p class="subtitle">Enter a term to see how often it’s searched.</p>
 
-    <input id="termInput" type="text" placeholder="e.g. dreams" />
-    <button onclick="checkTerm()">Reveal</button>
+    <input
+      id="termInput"
+      type="text"
+      placeholder="e.g. dreams"
+      onkeydown="handleKey(event)"
+    />
+
+    <button onclick="checkTerm()">Search</button>
 
     <div id="result" class="result hidden"></div>
 
     <p class="footer">
-      Estimates based on public trend signals.
+      Index based on aggregated public trend data.
     </p>
   </div>
 

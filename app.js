@@ -8,26 +8,29 @@ const trends = {
   "meaning of life": 35
 };
 
+function handleKey(e) {
+  if (e.key === "Enter") {
+    checkTerm();
+  }
+}
+
 function checkTerm() {
-  const input = document.getElementById("termInput").value
-    .toLowerCase()
-    .trim();
+  const inputEl = document.getElementById("termInput");
+  const input = inputEl.value.toLowerCase().trim();
 
   const resultEl = document.getElementById("result");
   resultEl.classList.remove("hidden");
 
   if (!input) {
-    resultEl.innerText = "You need to think of something first.";
+    resultEl.innerText = "Please enter a search term.";
     return;
   }
 
   const score = trends[input];
 
   if (score !== undefined) {
-    resultEl.innerText =
-      `"${input}" is a commonly searched thought right now.`;
+    resultEl.innerText = `"${input}" — estimated search frequency index: ${score}/100`;
   } else {
-    resultEl.innerText =
-      `"${input}" isn’t searched very often — which usually means it’s more personal than public.`;
+    resultEl.innerText = `"${input}" — estimated search frequency index: <10/100`;
   }
 }
