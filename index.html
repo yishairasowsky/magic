@@ -8,18 +8,22 @@
 <body>
   <div class="container">
     <h1>Search Frequency</h1>
-    <p class="subtitle">Enter a term to see how often it’s searched.</p>
+    <p class="subtitle">Estimated global search interest index</p>
 
-    <input
-      id="termInput"
-      type="text"
-      placeholder="e.g. dreams"
-      onkeydown="handleKey(event)"
-    />
+    <form onsubmit="checkTerm(); return false;">
+      <input
+        id="termInput"
+        type="text"
+        placeholder="Enter a search term"
+        autocomplete="off"
+      />
+      <button type="submit">Search</button>
+    </form>
 
-    <button onclick="checkTerm()">Search</button>
-
-    <div id="result" class="result hidden"></div>
+    <div id="result" class="result hidden">
+      <div class="number" id="score"></div>
+      <div class="label">Search Interest Index (0–100)</div>
+    </div>
 
     <p class="footer">
       Index based on aggregated public trend data.

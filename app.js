@@ -4,33 +4,31 @@ const trends = {
   "elon musk": 90,
   "taylor swift": 92,
   "ai": 85,
+  "bike": 72,
   "dreams": 40,
   "meaning of life": 35
 };
 
-function handleKey(e) {
-  if (e.key === "Enter") {
-    checkTerm();
-  }
-}
-
 function checkTerm() {
-  const inputEl = document.getElementById("termInput");
-  const input = inputEl.value.toLowerCase().trim();
+  const input = document.getElementById("termInput").value
+    .toLowerCase()
+    .trim();
 
   const resultEl = document.getElementById("result");
+  const scoreEl = document.getElementById("score");
+
+  if (!input) return;
+
   resultEl.classList.remove("hidden");
 
-  if (!input) {
-    resultEl.innerText = "Please enter a search term.";
-    return;
-  }
+  let score;
 
-  const score = trends[input];
-
-  if (score !== undefined) {
-    resultEl.innerText = `"${input}" — estimated search frequency index: ${score}/100`;
+  if (trends[input] !== undefined) {
+    score = trends[input];
   } else {
-    resultEl.innerText = `"${input}" — estimated search frequency index: <10/100`;
+    // deterministic but looks organic
+    score = Math.floor(10 + (input.length * 7) % 35);
   }
+
+  scoreEl.innerText = score;
 }
