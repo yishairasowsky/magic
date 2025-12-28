@@ -18,16 +18,17 @@ function checkTerm() {
 
   const resultEl = document.getElementById("result");
   const scoreEl = document.getElementById("scoreValue");
+  const queryEl = document.getElementById("queryValue");
 
   let score;
 
   if (trends[input] !== undefined) {
     score = trends[input];
   } else {
-    // deterministic, stable estimate (looks statistical)
     score = Math.max(8, Math.min(45, input.length * 6));
   }
 
+  queryEl.innerText = input;
   scoreEl.innerText = score;
   resultEl.classList.remove("hidden");
 }
